@@ -1,0 +1,108 @@
+<div class="list row">
+  <div class="col-md-8">
+    <div class="input-group mb-3">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Buscar por placa"
+        [(ngModel)]="placa"
+      />
+      <div class="input-group-append">
+        <button
+          class="btn btn-outline-secondary"
+          type="button"
+          (click)="searchPlaca()"
+        >
+          Buscar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!currentTutorial">
+    <br />
+    <p>Por favor seleccione una placa para ver sus detalles...</p>
+  </div>
+  
+  <div class="princpial">
+    <h4>Lista de automóviles</h4>
+    <div class="divuno">
+        <div class="table-responsive"  style="width:500px; height:500px; overflow: auto;">
+        <table  class="table table-hover">
+          <thead>
+              <tr>
+                  <th scope="col">
+                      Placa
+                  </th>
+                  <th scope="col">
+                      Chasis
+                  </th>
+                  <th scope="col">
+                      Kilometraje
+                  </th>
+                  <th scope="col">
+                    
+                </th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr mdbTableCol
+                  *ngFor="let tutorial of tutorials; let i = index"
+                  [class.active]="i == currentIndex"
+                  (click)="setActiveTutorial(tutorial, i)" 
+              >
+                  <td>
+                    {{ tutorial.placa }}
+                  </td>
+                  <td>
+                    {{ tutorial.chasis }}
+                  </td>
+                  <td>
+                    {{ tutorial.kilometraje }}
+                  </td>
+                  <td>
+                    <button class="m-2 btn btn-sm btn-warning" routerLink="/tutorials/{{ tutorial.id}}" >
+                      Modificar
+                    </button>
+                  </td>
+              </tr>
+          </tbody>
+        </table>
+        </div>
+      </div>
+
+      <div class="divdos">
+        <div >
+          <div *ngIf="currentTutorial">
+            <h4>Detalles</h4>
+            <div>
+              <label><strong>Placa:</strong></label> {{ currentTutorial.placa }}
+            </div>
+            <div>
+              <label><strong>Kilometraje:</strong></label>
+              {{ currentTutorial.kilometraje }}
+            </div>
+            <div>
+              <label><strong>Mano de obra:</strong></label>
+              {{ currentTutorial.obra }}
+            </div>
+            <div>
+              <label><strong>Última fecha de ingreso:</strong></label>
+              {{ currentTutorial.fecha | date: 'dd/MM/yyyy' }}
+            </div>
+            <div>
+              <label><strong>Nombre:</strong></label>
+              {{ currentTutorial.nombre }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="clear:both"></div>
+   
+
+    <!-- <button class="m-3 btn btn-sm btn-danger" (click)="removeAllTutorials()">
+      Eliminar Todo
+    </button> -->
+  </div>
+
+</div>

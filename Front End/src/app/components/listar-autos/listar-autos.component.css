@@ -1,0 +1,24 @@
+.list {
+  text-align: left;
+  max-width: 750px;
+  margin: auto;
+}
+
+.principal{
+  height: 120px;
+  width: 500px;
+  
+  }
+  
+.divuno{
+  height: 40px;
+  width: 40px;
+  float:left;
+}
+     
+     
+.divdos{
+  height: 40px;
+  width: 200px;
+  float:right;
+}

@@ -1,0 +1,96 @@
+<div>
+  <div class="submit-form">
+    <div *ngIf="!submitted">
+
+      <div class="form-group">
+        <label for="placa">Placa</label>
+        <input
+          class="form-control"
+          id="placa"
+          required
+          [(ngModel)]="tutorial.placa"
+          name="placa"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="chasis">Numero de Chasis</label>
+        <input
+          class="form-control"
+          id="chasis"
+          required
+          [(ngModel)]="tutorial.chasis"
+          name="chasis"
+        />
+      </div>
+      
+      <div class="form-group">
+        <label for="kilometraje">Kilometraje</label>
+        <input
+        type="number"
+          class="form-control"
+          id="kilometraje"
+          required
+          [(ngModel)]="tutorial.kilometraje"
+          name="kilometraje"
+        />
+        <!-- <p-inputNumber 
+            class="form-control"
+            id="kilometraje"
+            required
+            [(ngModel)]="tutorial.kilometraje"
+            
+            mode="currency" 
+            currency="USD">
+        </p-inputNumber> -->
+        
+      </div>
+      
+
+      <div class="form-group">
+        <label for="fecha">Fecha de último ingreso</label>
+        <input
+        type="date"
+          class="form-control"
+          id="fecha"
+          required
+          [(ngModel)]="tutorial.fecha"
+          name="fecha"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="obra">Mano de obra</label>
+       
+        <textarea [rows]="5" [cols]="30" pInputTextarea autoResize="autoResize"
+        class="form-control"
+          id="obra"
+          required
+          [(ngModel)]="tutorial.obra"
+          name="obra">
+        </textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input
+          class="form-control"
+          id="nombre"
+          required
+          [(ngModel)]="tutorial.nombre"
+          name="nombre"
+        />
+      </div>
+
+      
+
+    <hr>
+      <button (click)="saveTutorial()" class="btn btn-success">Guardar</button>
+    </div>
+
+    <div *ngIf="submitted">
+      <h4>Registro guardado exitosamente!</h4>
+      <button class="btn btn-success" (click)="newTutorial()">Agregar</button>
+    </div>
+  </div>
+</div>
