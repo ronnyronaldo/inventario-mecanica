@@ -5,10 +5,10 @@ import { EditarAutosComponent } from './components/editar-autos/editar-autos.com
 import { AgregarAutoComponent } from './components/agregar-auto/agregar-auto.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'tutorials', pathMatch: 'full' },
-  { path: 'tutorials', component: ListarAutosComponent },
-  { path: 'tutorials/:id', component: EditarAutosComponent },
-  { path: 'add', component: AgregarAutoComponent }
+  { path: '', redirectTo: 'autos', pathMatch: 'full' },
+  { path: 'autos', component: ListarAutosComponent },
+  { path: 'autos/:id', component: EditarAutosComponent },
+  { path: 'agregar', component: AgregarAutoComponent }
 ];
 
 @NgModule({
