@@ -1,96 +1,153 @@
-<div>
-  <div class="submit-form">
+<div style="margin-top:50px;">
+  <!-- Inicio del formulario -->
     <div *ngIf="!submitted">
-
-      <div class="form-group">
-        <label for="placa">Placa</label>
-        <input
-          class="form-control"
-          id="placa"
-          required
-          [(ngModel)]="tutorial.placa"
-          name="placa"
-        />
-      </div>
-
-      <div class="form-group">
-        <label for="chasis">Numero de Chasis</label>
-        <input
-          class="form-control"
-          id="chasis"
-          required
-          [(ngModel)]="tutorial.chasis"
-          name="chasis"
-        />
-      </div>
+      <!-- dar un espacio desde el top -->
+      <div class="col-lg-12" style="margin-top:2px;"></div> 
       
-      <div class="form-group">
-        <label for="kilometraje">Kilometraje</label>
-        <input
-        type="number"
-          class="form-control"
-          id="kilometraje"
-          required
-          [(ngModel)]="tutorial.kilometraje"
-          name="kilometraje"
-        />
-        <!-- <p-inputNumber 
-            class="form-control"
-            id="kilometraje"
-            required
-            [(ngModel)]="tutorial.kilometraje"
+      <form>
+        <div class="row">
+          <div class="form-group col-md-3">
+            <label for="nombre">Nombre:</label>
+            <input
+              class="form-control"
+              id="nombre"
+              required
+              [(ngModel)]="auto.nombre"
+              name="nombre"
+              placeholder="Ingrese el nombre"
+            />
+          </div>
+          <div class="form-group col-md-2">
+            <label for="cedula">Número de identificación:</label>
+            <input
+            type="number"
+              class="form-control"
+              id="cedula"
+              required
+              [(ngModel)]="auto.cedula"
+              name="cedula"
+              placeholder="Ingrese la cédula"
+            />          
+          </div>
+          <div class="form-group col-md-2">
+            <label for="celular">Número de teléfono:</label>
+            <input
+            type="number"
+              class="form-control"
+              id="celular"
+              required
+              [(ngModel)]="auto.celular"
+              name="celular"
+              placeholder="Ingrese el teléfono"
+            />          
+          </div>
+        </div>
+    
+      </form>
+      <form>
+        <div  class="row">
+          <div class="form-group col-md-2">
+            <label for="placa">Placa:</label>
+            <input
+              class="form-control"
+              id="placa"
+              required
+              [(ngModel)]="auto.placa"
+              name="placa"
+              placeholder="Placa"
+            />
+          </div>
+
+          <div class="form-group col-md-2">
+            <label for="chasis">Numero de Chasis:</label>
+            <input
+              class="form-control"
+              id="chasis"
+              required
+              [(ngModel)]="auto.chasis"
+              name="chasis"
+              placeholder="Chasis"
+            />
+          </div>
+          
+          <div class="form-group col-md-2">
+            <label for="kilometraje">Kilometraje:</label>
+            <input
+            type="number"
+              class="form-control"
+              id="kilometraje"
+              required
+              [(ngModel)]="auto.kilometraje"
+              name="kilometraje"
+              placeholder="Kilometraje"
+            />
+            <!-- <p-inputNumber 
+                class="form-control"
+                id="kilometraje"
+                required
+                [(ngModel)]="auto.kilometraje"
+                
+                mode="currency" 
+                currency="USD">
+            </p-inputNumber> -->
             
-            mode="currency" 
-            currency="USD">
-        </p-inputNumber> -->
-        
-      </div>
-      
+          </div>
+        </div>
+      </form>
 
-      <div class="form-group">
+      <div class="form-group col-md-2">
         <label for="fecha">Fecha de último ingreso</label>
         <input
         type="date"
           class="form-control"
           id="fecha"
           required
-          [(ngModel)]="tutorial.fecha"
+          [(ngModel)]="auto.fecha"
           name="fecha"
         />
       </div>
 
-      <div class="form-group">
-        <label for="obra">Mano de obra</label>
-       
-        <textarea [rows]="5" [cols]="30" pInputTextarea autoResize="autoResize"
-        class="form-control"
-          id="obra"
-          required
-          [(ngModel)]="tutorial.obra"
-          name="obra">
-        </textarea>
-      </div>
+      <form>
+        <div class="row">
+          <div class="form-group col-md-4">
+            <label for="obra">Mano de obra</label>
+          
+            <textarea [rows]="5" [cols]="30" pInputTextarea autoResize="autoResize"
+            class="form-control"
+              id="obra"
+              required
+              [(ngModel)]="auto.obra"
+              name="obra">
+            </textarea>
+          </div>
 
-      <div class="form-group">
-        <label for="nombre">Nombre</label>
-        <input
-          class="form-control"
-          id="nombre"
-          required
-          [(ngModel)]="tutorial.nombre"
-          name="nombre"
-        />
+          <div class="form-group col-md-4">
+            <label for="repuestos">Repuestos</label>
+          
+            <textarea [rows]="5" [cols]="30" pInputTextarea autoResize="autoResize"
+            class="form-control"
+              id="repuestos"
+              required
+              [(ngModel)]="auto.repuestos"
+              name="repuestos">
+            </textarea>
+          </div>
+        </div>
+      </form>
+
+
+      <div class="form-group col-md-8">
+        <hr>
+        <button (click)="saveAuto()" class="btn btn-success">Guardar</button>
       </div>
 
       
 
-    <hr>
-      <button (click)="saveTutorial()" class="btn btn-success">Guardar</button>
+ 
     </div>
 
     <div *ngIf="submitted">
       <h4>Registro guardado exitosamente!</h4>
-      <button class="btn btn-success" (click)="newTutorial()">Agregar</button>
+      <button class="btn btn-success" (click)="newAuto()">Agregar</button>
     </div>
-  </div>
 </div>

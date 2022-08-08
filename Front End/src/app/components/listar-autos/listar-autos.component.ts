@@ -8,8 +8,8 @@ import { AutoService } from 'src/app/services/auto.service';
   styleUrls: ['./listar-autos.component.css']
 })
 export class ListarAutosComponent implements OnInit {
-  tutorials?: Auto[];
-  currentTutorial?: Auto;
+  autos?: Auto[];
+  currentAuto?: Auto;
   currentIndex = -1;
   placa = '';
 
@@ -17,14 +17,14 @@ export class ListarAutosComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.retrieveTutorials();
+    this.recuperarAutos();
   }
 
-  retrieveTutorials(): void {
+  recuperarAutos(): void {
     this.autoService.getAll()
       .subscribe(
         data => {
-          this.tutorials = data;
+          this.autos = data;
           console.log(data);
         },
         error => {
@@ -32,23 +32,23 @@ export class ListarAutosComponent implements OnInit {
         });
   }
 
-  refreshList(): void {
-    this.retrieveTutorials();
-    this.currentTutorial = undefined;
+  refrescarLista(): void {
+    this.recuperarAutos();
+    this.currentAuto = undefined;
     this.currentIndex = -1;
   }
 
   setActiveTutorial(tutorial: Auto, index: number): void {
-    this.currentTutorial = tutorial;
+    this.currentAuto = tutorial;
     this.currentIndex = index;
   }
 
-  removeAllTutorials(): void {
+  borrarAllAutos(): void {
     this.autoService.deleteAll()
       .subscribe(
         response => {
           console.log(response);
-          this.refreshList();
+          this.refrescarLista();
         },
         error => {
           console.log(error);
@@ -56,13 +56,13 @@ export class ListarAutosComponent implements OnInit {
   }
 
   searchPlaca(): void {
-    this.currentTutorial = undefined;
+    this.currentAuto = undefined;
     this.currentIndex = -1;
 
     this.autoService.findByPlaca(this.placa)
       .subscribe(
         data => {
-          this.tutorials = data;
+          this.autos = data;
           console.log(data);
         },
         error => {

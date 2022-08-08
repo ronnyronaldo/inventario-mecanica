@@ -70,7 +70,10 @@ public class AutoController {
 							auto.getKilometraje(),
 							auto.getFecha(),
 							auto.getObra(),
-							auto.getNombre()
+							auto.getNombre(),
+							auto.getCedula(),
+							auto.getCelular(),
+							auto.getRepuestos()
 							));
 			System.out.println(_auto);
 			return new ResponseEntity<>(_auto, HttpStatus.CREATED);
@@ -90,6 +93,9 @@ public class AutoController {
 			_auto.setFecha(auto.getFecha());
 			_auto.setObra(auto.getObra());
 			_auto.setNombre(auto.getNombre());
+			_auto.setCedula(auto.getCedula());
+			_auto.setCelular(auto.getCelular());
+			_auto.setRepuestos(auto.getRepuestos());
 			return new ResponseEntity<>(autoRepository.save(_auto), HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);

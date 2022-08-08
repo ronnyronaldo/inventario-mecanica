@@ -18,8 +18,9 @@
       </div>
     </div>
   </div>
+</div>
 
-  <div *ngIf="!currentTutorial">
+  <div *ngIf="!currentAuto">
     <br />
     <p>Por favor seleccione una placa para ver sus detalles...</p>
   </div>
@@ -47,7 +48,7 @@
           </thead>
           <tbody>
               <tr mdbTableCol
-                  *ngFor="let tutorial of tutorials; let i = index"
+                  *ngFor="let tutorial of autos; let i = index"
                   [class.active]="i == currentIndex"
                   (click)="setActiveTutorial(tutorial, i)" 
               >
@@ -61,7 +62,7 @@
                     {{ tutorial.kilometraje }}
                   </td>
                   <td>
-                    <button class="m-2 btn btn-sm btn-warning" routerLink="/tutorials/{{ tutorial.id}}" >
+                    <button class="m-2 btn btn-sm btn-warning" routerLink="/autos/{{ tutorial.id}}" >
                       Modificar
                     </button>
                   </td>
@@ -71,38 +72,56 @@
         </div>
       </div>
 
+
+      
       <div class="divdos">
         <div >
-          <div *ngIf="currentTutorial">
+          <div *ngIf="currentAuto">
             <h4>Detalles</h4>
-            <div>
-              <label><strong>Placa:</strong></label> {{ currentTutorial.placa }}
-            </div>
-            <div>
-              <label><strong>Kilometraje:</strong></label>
-              {{ currentTutorial.kilometraje }}
-            </div>
-            <div>
-              <label><strong>Mano de obra:</strong></label>
-              {{ currentTutorial.obra }}
-            </div>
-            <div>
-              <label><strong>Última fecha de ingreso:</strong></label>
-              {{ currentTutorial.fecha | date: 'dd/MM/yyyy' }}
-            </div>
-            <div>
-              <label><strong>Nombre:</strong></label>
-              {{ currentTutorial.nombre }}
-            </div>
+            <!-- <form>
+              <div class="row"> -->
+                  <div>
+                    <label><strong>Placa:</strong></label> {{ currentAuto.placa }}
+                  </div>
+                  <div>
+                    <label><strong>Kilometraje:</strong></label>
+                    {{ currentAuto.kilometraje }}
+                  </div>
+                  <div>
+                    <label><strong>Mano de obra:</strong></label>
+                    {{ currentAuto.obra }}
+                  </div>
+                  <div>
+                    <label><strong>Repuestos:</strong></label>
+                    {{ currentAuto.repuestos }}
+                  </div>
+                  <div>
+                    <label><strong>Última fecha de ingreso:</strong></label>
+                    {{ currentAuto.fecha | date: 'dd/MM/yyyy' }}
+                  </div>
+                  <div>
+                    <label><strong>Nombre:</strong></label>
+                    {{ currentAuto.nombre }}
+                  </div>
+                  <div>
+                    <label><strong>Cedula:</strong></label>
+                    {{ currentAuto.cedula }}
+                  </div>
+                  <div>
+                    <label><strong>Celular:</strong></label>
+                    {{ currentAuto.celular }}
+                  </div>
+              <!-- </div>
+            </form> -->
           </div>
         </div>
       </div>
       <div style="clear:both"></div>
    
 
-    <!-- <button class="m-3 btn btn-sm btn-danger" (click)="removeAllTutorials()">
+    <!-- <button class="m-3 btn btn-sm btn-danger" (click)="borrarAllAutos()">
       Eliminar Todo
     </button> -->
   </div>
 
-</div>
+

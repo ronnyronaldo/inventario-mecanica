@@ -1,5 +1,5 @@
 <div>
-  <div *ngIf="currentTutorial.id" class="edit-form">
+  <div *ngIf="currentAuto.id" class="edit-form">
     <h4>Modificar</h4>
     <form>
       <div class="form-group">
@@ -8,7 +8,7 @@
           type="text"
           class="form-control"
           id="placa"
-          [(ngModel)]="currentTutorial.placa"
+          [(ngModel)]="currentAuto.placa"
           name="placa"
         />
       </div>
@@ -18,7 +18,7 @@
           type="text"
           class="form-control"
           id="chasis"
-          [(ngModel)]="currentTutorial.chasis"
+          [(ngModel)]="currentAuto.chasis"
           name="chasis"
         />
       </div>
@@ -28,7 +28,7 @@
           type="text"
           class="form-control"
           id="kilometraje"
-          [(ngModel)]="currentTutorial.kilometraje"
+          [(ngModel)]="currentAuto.kilometraje"
           name="kilometraje"
         />
       </div>
@@ -40,7 +40,7 @@
           class="form-control"
           id="fecha"
           required
-          [(ngModel)]="currentTutorial.fecha"
+          [(ngModel)]="currentAuto.fecha"
           name="fecha"
         />
       </div>
@@ -50,7 +50,7 @@
           type="text"
           class="form-control"
           id="obra"
-          [(ngModel)]="currentTutorial.obra"
+          [(ngModel)]="currentAuto.obra"
           name="obra"
         />
       </div>
@@ -60,7 +60,7 @@
           type="text"
           class="form-control"
           id="nombre"
-          [(ngModel)]="currentTutorial.nombre"
+          [(ngModel)]="currentAuto.nombre"
           name="nombre"
         />
       </div>
@@ -68,22 +68,22 @@
     </form>
 
 
-    <button class="m-3 btn btn-sm btn-danger" (click)="deleteTutorial()">
+    <button class="m-3 btn btn-sm btn-danger" (click)="deleteAuto()">
       Borrar
     </button>
 
     <button
       type="submit"
       class="m-3 btn btn-sm btn-warning"
-      (click)="updateTutorial()"
+      (click)="updateAuto()"
     >
       Actualizar
     </button>
     <p>{{ message }}</p>
   </div>
 
-  <div *ngIf="!currentTutorial.id">
+  <div *ngIf="!currentAuto.id">
     <br />
-    <p>Cannot access this Tutorial...</p>
+    <p>Cannot access this Auto...</p>
   </div>
 </div>

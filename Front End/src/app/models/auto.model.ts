@@ -6,4 +6,7 @@ export class Auto {
   fecha?: any;
   obra?: string;
   nombre?: string;
+  cedula?: string;
+  celular?: string;
+  repuestos?: string;
 }

@@ -9,7 +9,7 @@ import { Auto } from 'src/app/models/auto.model';
   styleUrls: ['./editar-autos.component.css']
 })
 export class EditarAutosComponent implements OnInit {
-  currentTutorial: Auto = {
+  currentAuto: Auto = {
     placa: '',
     chasis:'',
     kilometraje: '',
@@ -26,14 +26,14 @@ export class EditarAutosComponent implements OnInit {
 
   ngOnInit(): void {
     this.message = '';
-    this.getTutorial(this.route.snapshot.params.id);
+    this.getAuto(this.route.snapshot.params.id);
   }
 
-  getTutorial(id: string): void {
+  getAuto(id: string): void {
     this.autoService.get(id)
       .subscribe(
         data => {
-          this.currentTutorial = data;
+          this.currentAuto = data;
           console.log(data);
         },
         error => {
@@ -41,27 +41,27 @@ export class EditarAutosComponent implements OnInit {
         });
   }
 
-  updateTutorial(): void {
+  updateAuto(): void {
     this.message = '';
 
-    this.autoService.update(this.currentTutorial.id, this.currentTutorial)
+    this.autoService.update(this.currentAuto.id, this.currentAuto)
       .subscribe(
         response => {
           console.log(response);
           this.message = response.message ? response.message : 'Los registros fueron actualizados correctamente!';
-          //this.router.navigate(['/tutorials']);
+          //this.router.navigate(['/Autos']);
         },
         error => {
           console.log(error);
         });
   }
 
-  deleteTutorial(): void {
-    this.autoService.delete(this.currentTutorial.id)
+  deleteAuto(): void {
+    this.autoService.delete(this.currentAuto.id)
       .subscribe(
         response => {
           console.log(response);
-          this.router.navigate(['/tutorials']);
+          this.router.navigate(['/autos']);
         },
         error => {
           console.log(error);

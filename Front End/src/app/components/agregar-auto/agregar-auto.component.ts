@@ -8,13 +8,16 @@ import { AutoService } from 'src/app/services/auto.service';
   styleUrls: ['./agregar-auto.component.css']
 })
 export class AgregarAutoComponent implements OnInit {
-  tutorial: Auto = {
+  auto: Auto = {
     placa: '',
     chasis: '',
     kilometraje: '',
     fecha: Date,
     obra: '',
     nombre: '',
+    cedula:'',
+    celular: '',
+    repuestos: '',
   };
   submitted = false;
 
@@ -23,14 +26,17 @@ export class AgregarAutoComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  saveTutorial(): void {
+  saveAuto(): void {
     const data = {
-      placa: this.tutorial.placa,
-      chasis: this.tutorial.chasis,
-      kilometraje: this.tutorial.kilometraje,
-      fecha: this.tutorial.fecha,
-      obra: this.tutorial.obra,
-      nombre: this.tutorial.nombre,
+      placa: this.auto.placa,
+      chasis: this.auto.chasis,
+      kilometraje: this.auto.kilometraje,
+      fecha: this.auto.fecha,
+      obra: this.auto.obra,
+      nombre: this.auto.nombre,
+      cedula: this.auto.cedula,
+      celular: this.auto.celular,
+      repuestos: this.auto.repuestos,
     };
 
     this.autoService.create(data)
@@ -44,15 +50,18 @@ export class AgregarAutoComponent implements OnInit {
         });
   }
 
-  newTutorial(): void {
+  newAuto(): void {
     this.submitted = false;
-    this.tutorial = {
+    this.auto = {
       placa: '',
       chasis: '',
       kilometraje: '',
       fecha: Date,
       obra: '',
       nombre: '',
+      cedula: '',
+      celular: '',
+      repuestos: '',
     };
   }
 

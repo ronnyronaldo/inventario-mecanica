@@ -30,17 +30,29 @@ public class Auto {
 	@Column(name = "persona")
 	private String nombre;
 
+	@Column(name = "cedula")
+	private String cedula;
+
+	@Column(name = "celular")
+	private String celular;
+
+	@Column(name = "repuestos")
+	private String repuestos;
+
 	public Auto() {
 
 	}
 
-	public Auto(String placa, String chasis, String kilometraje, Date fecha, String obra, String nombre) {
+	public Auto(String placa, String chasis, String kilometraje, Date fecha, String obra, String nombre, String cedula, String celular, String repuestos) {
 		this.placa = placa;
 		this.chasis = chasis;
 		this.kilometraje = kilometraje;
 		this.fecha = fecha;
 		this.obra = obra;
 		this.nombre = nombre;
+		this.cedula = cedula;
+		this.celular = celular;
+		this.repuestos = repuestos;
 	}
 
 	public long getId() {
@@ -95,6 +107,30 @@ public class Auto {
 		this.nombre = nombre;
 	}
 
+	public String getCedula() {
+		return cedula;
+	}
+
+	public void setCedula(String cedula) {
+		this.cedula = cedula;
+	}
+
+	public String getCelular() {
+		return celular;
+	}
+
+	public void setCelular(String celular) {
+		this.celular = celular;
+	}
+
+	public String getRepuestos() {
+		return repuestos;
+	}
+
+	public void setRepuestos(String repuestos) {
+		this.repuestos = repuestos;
+	}
+
 	@Override
 	public String toString() {
 		return "Auto{" +
@@ -105,6 +141,9 @@ public class Auto {
 				", fecha=" + fecha +
 				", obra='" + obra + '\'' +
 				", nombre='" + nombre + '\'' +
+				", cedula=" + cedula +
+				", celular=" + celular +
+				", repuestos='" + repuestos + '\'' +
 				'}';
 	}
 }
