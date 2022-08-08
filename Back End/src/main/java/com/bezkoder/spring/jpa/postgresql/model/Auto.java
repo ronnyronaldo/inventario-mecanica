@@ -24,7 +24,7 @@ public class Auto {
 	@Temporal(TemporalType.DATE)
 	private Date fecha;
 
-	@Column(name = "mano_de_obra")
+	@Column(name = "mano_de_obra", length = 10000)
 	private String obra;
 
 	@Column(name = "persona")
@@ -36,7 +36,7 @@ public class Auto {
 	@Column(name = "celular")
 	private String celular;
 
-	@Column(name = "repuestos")
+	@Column(name = "repuestos", length = 10000)
 	private String repuestos;
 
 	public Auto() {
