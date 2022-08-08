@@ -46,13 +46,21 @@
       </div>
       <div class="form-group">
         <label for="obra">Obra</label>
-        <input
-          type="text"
+        <textarea [rows]="5" [cols]="30" pInputTextarea autoResize="autoResize"
           class="form-control"
           id="obra"
           [(ngModel)]="currentAuto.obra"
-          name="obra"
-        />
+          name="obra">
+        </textarea>
+      </div>
+      <div class="form-group">
+        <label for="repuestos">Repuestos</label>
+        <textarea [rows]="5" [cols]="30" pInputTextarea autoResize="autoResize"
+          class="form-control"
+          id="repuestos"
+          [(ngModel)]="currentAuto.repuestos"
+          name="repuestos">
+        </textarea>
       </div>
       <div class="form-group">
         <label for="nombre">Nombre</label>
@@ -62,6 +70,26 @@
           id="nombre"
           [(ngModel)]="currentAuto.nombre"
           name="nombre"
+        />
+      </div>
+      <div class="form-group">
+        <label for="cedula">Cedula</label>
+        <input
+          type="text"
+          class="form-control"
+          id="cedula"
+          [(ngModel)]="currentAuto.cedula"
+          name="cedula"
+        />
+      </div>
+      <div class="form-group">
+        <label for="celular">celular</label>
+        <input
+          type="text"
+          class="form-control"
+          id="celular"
+          [(ngModel)]="currentAuto.celular"
+          name="celular"
         />
       </div>
 
