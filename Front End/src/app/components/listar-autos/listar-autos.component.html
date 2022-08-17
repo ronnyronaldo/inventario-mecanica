@@ -19,16 +19,11 @@
     </div>
   </div>
 </div>
-
-  <div *ngIf="!currentAuto">
-    <br />
-    <p>Por favor seleccione una placa para ver sus detalles...</p>
-  </div>
   
   <div class="princpial">
     <h4>Lista de automóviles</h4>
     <div class="divuno">
-        <div class="table-responsive"  style="width:500px; height:500px; overflow: auto;">
+        <div class="table-responsive"  style="width:750px; height:500px; overflow: auto;">
         <table  class="table table-hover">
           <thead>
               <tr>
@@ -40,6 +35,9 @@
                   </th>
                   <th scope="col">
                       Kilometraje
+                  </th>
+                  <th>
+                    Detalles
                   </th>
                   <th scope="col">
                     
@@ -62,6 +60,9 @@
                     {{ tutorial.kilometraje }}
                   </td>
                   <td>
+                    <button class="m-2 btn btn-sm btn-success" (click)="openScrollableContent(longContent)">Ver detalles auto</button>
+                  </td>
+                  <td>
                     <button class="m-2 btn btn-sm btn-warning" routerLink="/autos/{{ tutorial.id}}" >
                       Modificar
                     </button>
@@ -74,48 +75,6 @@
 
 
       
-      <div class="divdos">
-        <div >
-          <div *ngIf="currentAuto">
-            <h4>Detalles</h4>
-            <!-- <form>
-              <div class="row"> -->
-                  <div>
-                    <label><strong>Placa:</strong></label> {{ currentAuto.placa }}
-                  </div>
-                  <div>
-                    <label><strong>Kilometraje:</strong></label>
-                    {{ currentAuto.kilometraje }}
-                  </div>
-                  <div>
-                    <label><strong>Mano de obra:</strong></label>
-                    {{ currentAuto.obra }}
-                  </div>
-                  <div>
-                    <label><strong>Repuestos:</strong></label>
-                    {{ currentAuto.repuestos }}
-                  </div>
-                  <div>
-                    <label><strong>Última fecha de ingreso:</strong></label>
-                    {{ currentAuto.fecha | date: 'dd/MM/yyyy' }}
-                  </div>
-                  <div>
-                    <label><strong>Nombre:</strong></label>
-                    {{ currentAuto.nombre }}
-                  </div>
-                  <div>
-                    <label><strong>Cedula:</strong></label>
-                    {{ currentAuto.cedula }}
-                  </div>
-                  <div>
-                    <label><strong>Celular:</strong></label>
-                    {{ currentAuto.celular }}
-                  </div>
-              <!-- </div>
-            </form> -->
-          </div>
-        </div>
-      </div>
       <div style="clear:both"></div>
    
 
@@ -123,5 +82,51 @@
       Eliminar Todo
     </button> -->
   </div>
+
+  <ng-template #longContent let-modal>
+    <div *ngIf="currentAuto">
+      <div class="modal-header">
+        <h4 class="modal-title">Detalles placa: {{ currentAuto.placa }}</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+      </div>
+      <div class="modal-body">
+          <!-- <form>
+            <div class="row"> -->
+                <div>
+                  <label><strong>Kilometraje:</strong></label>
+                  {{ currentAuto.kilometraje }}
+                </div>
+                <div>
+                  <label><strong>Mano de obra:</strong></label>
+                  {{ currentAuto.obra }}
+                </div>
+                <div>
+                  <label><strong>Repuestos:</strong></label>
+                  {{ currentAuto.repuestos }}
+                </div>
+                <div>
+                  <label><strong>Última fecha de ingreso:</strong></label>
+                  {{ currentAuto.fecha | date: 'dd/MM/yyyy' }}
+                </div>
+                <div>
+                  <label><strong>Nombre:</strong></label>
+                  {{ currentAuto.nombre }}
+                </div>
+                <div>
+                  <label><strong>Cedula:</strong></label>
+                  {{ currentAuto.cedula }}
+                </div>
+                <div>
+                  <label><strong>Celular:</strong></label>
+                  {{ currentAuto.celular }}
+                </div>
+            <!-- </div>
+          </form> -->
+        </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+      </div>
+    </div>
+  </ng-template>
 
 

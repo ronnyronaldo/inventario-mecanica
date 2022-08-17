@@ -2,22 +2,36 @@ import { Component, OnInit } from '@angular/core';
 import { Auto } from 'src/app/models/auto.model';
 import { AutoService } from 'src/app/services/auto.service';
 
+// Componentes del modal
+import { ViewEncapsulation } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
 @Component({
   selector: 'app-listar-autos',
   templateUrl: './listar-autos.component.html',
+  encapsulation: ViewEncapsulation.None,
   styleUrls: ['./listar-autos.component.css']
 })
 export class ListarAutosComponent implements OnInit {
+  closeResult: string = '';
+
   autos?: Auto[];
   currentAuto?: Auto;
   currentIndex = -1;
   placa = '';
 
-  constructor(private autoService: AutoService) {
+  constructor(
+    private autoService: AutoService,
+    private modalService: NgbModal) {
    }
 
   ngOnInit(): void {
     this.recuperarAutos();
+  }
+
+  
+  openScrollableContent(longContent: any):void {
+    this.modalService.open(longContent, { scrollable: true });
   }
 
   recuperarAutos(): void {
