@@ -76,7 +76,6 @@ public class AutoController {
 							auto.getCelular(),
 							auto.getRepuestos()
 							));
-			System.out.println(_auto);
 			return new ResponseEntity<>(_auto, HttpStatus.CREATED);
 		} catch (Exception e) {
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
